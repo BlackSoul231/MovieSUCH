@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.MovieSUCH" parent="android:Theme.Material.NoActionBar" />
+    <style name="GlavnayaTema" parent="android:Theme.Material">
+        <item name="colorPrimary">#232323</item>
+        <item name="colorPrimaryDark">#350062</item>
+        <item name="colorSecondary">#420000</item>
+        <item name="colorAccent">#000078</item>
+    </style>
+    <style name="GlavnayaTema.NovayaKnopka" parent="ThemeOverlay.MaterialComponents">
+    <item name="colorPrimary">#623800</item>
+</style>
+</resources>
