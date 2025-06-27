@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">МувиЗухн</string>
+    <string name="button1">Продолжить</string>
+    <string name="button2">Новое</string>
+    <string name="button3">Сохраненное</string>
+    <string name="button4">хз1</string>
+    <string name="button5">хз2</string>
+    <string name="button6">хз3</string>
+</resources>

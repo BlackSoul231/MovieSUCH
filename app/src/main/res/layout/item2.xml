@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/icon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/kartinka"
+            android:src="@drawable/ic_persona_foreground"
+            android:background="#FF00"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/text_name"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/icon"
+        app:layout_constraintTop_toTopOf="@id/icon"
+        app:layout_constraintWidth_default="wrap">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Soviet Human"
+            android:textAllCaps="true"
+            android:textStyle="italic|bold"/>
+
+    </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/text_desc"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/icon"
+        app:layout_constraintTop_toBottomOf="@id/text_name"
+        app:layout_constraintWidth_default="wrap">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Dsdfosdkfodskof OSDfkodsfkodskfodsk odsfokdskfodskfodsk doskfodskfodskfodsk dskofskdofdskfodskfods dksofdskofkdsofksdok dsfodskofkdsok sdoafkodsakfodsakf kodsakfodskaofakdsof"
+            android:padding="5dp"/>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

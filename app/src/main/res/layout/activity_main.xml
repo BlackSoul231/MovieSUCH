@@ -6,42 +6,124 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="137dp"
+        tools:src="@tools:sample/avatars"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topMenu"
+        app:layout_constraintBottom_toTopOf="@id/centralMenu"
+        android:contentDescription="Standard face"/>
+
     <LinearLayout
         android:id="@+id/centralMenu"
-        android:layout_width="300dp"
-        android:layout_height="500dp"
-        android:background="#676438B1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#67101014"
+        android:gravity="center"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="20dp"
+        app:layout_constraintBottom_toTopOf="@id/bottomMenu"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_default="wrap"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@id/topMenu"
+        app:layout_constraintWidth_default="wrap">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/button1"
+            android:background="@drawable/rectangulk"
+            android:layout_margin="5dp"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/button2"
+            android:background="@drawable/rectangulk"
+            android:layout_margin="5dp"/>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/button3"
+            android:background="@drawable/rectangulk"
+            android:layout_margin="5dp"/>
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/button4"
+            android:onClick="onClickToast"
+            android:background="@drawable/rectangulk"
+            android:layout_margin="5dp"/>
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/button5"
+            android:background="@drawable/rectangulk"
+            android:layout_margin="5dp"/>
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/button6"
+            android:background="@drawable/rectangulk"
+            android:layout_margin="5dp"/>
 
     </LinearLayout>
 
     <FrameLayout
         android:id="@+id/bottomMenu"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="150dp"
         android:background="#800047FB"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/centralMenu">
-
-    </FrameLayout>
+        app:layout_constraintHeight_default="spread"
+        app:layout_constraintTop_toBottomOf="@id/centralMenu"/>
 
     <FrameLayout
         android:id="@+id/topMenu"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="150dp"
         android:background="#A6FFE600"
-        app:layout_constraintBottom_toTopOf="@+id/centralMenu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/centralMenu"
+        app:layout_constraintHeight_default="spread"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello there, Mr. Unknown. Let's start."
+            android:layout_gravity="bottom|center_horizontal"
+            android:textSize="24sp"
+            android:shadowColor="@color/black"
+            android:shadowDx="5"
+            android:shadowDy="5"
+            android:shadowRadius="10"
+            android:textColor="#60000000"
+            />
+
     </FrameLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

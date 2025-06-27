@@ -1,47 +1,25 @@
 package us.deveron.moviesuch
 
 import android.os.Bundle
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import android.widget.Toast
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import us.deveron.moviesuch.ui.theme.MovieSUCHTheme
+import us.deveron.moviesuch.databinding.ActivityMainBinding
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            MovieSUCHTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+        setContentView(R.layout.activity_main)
+        val knopka = findViewById<Button>(R.id.button5)
+        knopka.setOnClickListener {
+            Toast.makeText(this, "Perdin!", Toast.LENGTH_SHORT).show()
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    MovieSUCHTheme {
-        Greeting("Android")
+    fun onClickToast(view: View) {
+        Toast.makeText(this, "Chin!", Toast.LENGTH_SHORT).show()
     }
 }
