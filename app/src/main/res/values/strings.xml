@@ -3,8 +3,8 @@
     <string name="button1">Continue</string>
     <string name="button2">New</string>
     <string name="button3">Saved</string>
-    <string name="button4">idk1</string>
-    <string name="button5">idk2</string>
-    <string name="button6">idk3</string>
+    <string name="button4">Additional</string>
+    <string name="button5">Settings</string>
+    <string name="button6">Leave</string>
 
 </resources>
