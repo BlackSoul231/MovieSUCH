@@ -9,4 +9,18 @@
         <item name="colorAccent">#817401</item>
     </style>
 
+    <style name="RoundButton"
+        parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">50dp</item>
+        <item name="backgroundTint">@android:color/holo_red_dark</item>
+        <item name="android:textSize">10sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="TextShadow" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:shadowDy">5</item>
+        <item name="android:shadowDx">5</item>
+        <item name="android:shadowRadius">5</item>
+        <item name="android:shadowColor">@android:color/black</item>
+    </style>
 </resources>

@@ -24,7 +24,6 @@ class MainActivity : ComponentActivity() {
         val button3 = findViewById<Button>(R.id.button3)
         val button4 = findViewById<Button>(R.id.button4)
         val button5 = findViewById<Button>(R.id.button5)
-        val button6 = findViewById<Button>(R.id.button6)
         button1.setOnClickListener {
             Toast.makeText(this, "Continue", Toast.LENGTH_SHORT).show()
         }
@@ -39,9 +38,6 @@ class MainActivity : ComponentActivity() {
         }
         button5.setOnClickListener {
             Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
-        }
-        button6.setOnClickListener {
-            Toast.makeText(this, "Leave", Toast.LENGTH_SHORT).show()
         }
     }
 }
