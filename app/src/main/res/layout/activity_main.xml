@@ -4,126 +4,104 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/corner_background"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_layout"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="137dp"
-        tools:src="@tools:sample/avatars"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topMenu"
-        app:layout_constraintBottom_toTopOf="@id/centralMenu"
-        android:contentDescription="Standard face"/>
-
-    <LinearLayout
-        android:id="@+id/centralMenu"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="#67101014"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="20dp"
-        app:layout_constraintBottom_toTopOf="@id/bottomMenu"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_default="wrap"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/topMenu"
-        app:layout_constraintWidth_default="wrap">
-
-        <Button
-            android:id="@+id/button1"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/button1"
-            android:background="@drawable/rectangulk"
-            android:layout_margin="5dp"/>
-
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/button2"
-            android:background="@drawable/rectangulk"
-            android:layout_margin="5dp"/>
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/button3"
-            android:background="@drawable/rectangulk"
-            android:layout_margin="5dp"/>
-
-        <Button
-            android:id="@+id/button4"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/button4"
-            android:onClick="onClickToast"
-            android:background="@drawable/rectangulk"
-            android:layout_margin="5dp"/>
-
-        <Button
-            android:id="@+id/button5"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/button5"
-            android:background="@drawable/rectangulk"
-            android:layout_margin="5dp"/>
-
-        <Button
-            android:id="@+id/button6"
-            android:layout_width="300dp"
-            android:layout_height="50dp"
-            android:layout_gravity="center_horizontal"
-            android:text="@string/button6"
-            android:background="@drawable/rectangulk"
-            android:layout_margin="5dp"/>
-
-    </LinearLayout>
-
-    <FrameLayout
-        android:id="@+id/bottomMenu"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="150dp"
-        android:background="#800047FB"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHeight_default="spread"
-        app:layout_constraintTop_toBottomOf="@id/centralMenu"/>
-
-    <FrameLayout
-        android:id="@+id/topMenu"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginBottom="150dp"
-        android:background="#A6FFE600"
-        app:layout_constraintBottom_toTopOf="@id/centralMenu"
-        app:layout_constraintHeight_default="spread"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello there, Mr. Unknown. Let's start."
-            android:layout_gravity="bottom|center_horizontal"
-            android:textSize="24sp"
-            android:shadowColor="@color/black"
-            android:shadowDx="5"
-            android:shadowDy="5"
-            android:shadowRadius="10"
-            android:textColor="#60000000"
-            />
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/topAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/page_title"
+            app:navigationIcon="@drawable/baseline_menu_black_24"
+            app:menu="@menu/toolbar_neu"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary" />
 
-    </FrameLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <us.deveron.moviesuch.SubscribeView
+        android:id="@+id/subsription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/source_annotation"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/topMenu"
+        android:layout_width="match_parent"
+        android:layout_height="160dp"
+        android:layout_margin="10dp"
+        android:elevation="5dp"
+        app:cardCornerRadius="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/app_bar_layout">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="160dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/aliens_movie"
+                android:contentDescription="Aliens move poster"/>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="160dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/dark_knight_movie"
+                android:contentDescription="Dark Knight move poster"/>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="160dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/gladiator_movie"
+                android:contentDescription="Gladiator move poster"/>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="160dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/top_gun_movie2"
+                android:contentDescription="Top Gun move poster"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/source_annotation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autoLink="web"
+        android:linksClickable="true"
+        android:text="Источник: https://www.movieposters.com"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topMenu" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#183525"
+        app:itemTextColor="@color/white"
+        app:itemIconTint="@color/white"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:menu="@menu/toolbar_menu_for_navmenu"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

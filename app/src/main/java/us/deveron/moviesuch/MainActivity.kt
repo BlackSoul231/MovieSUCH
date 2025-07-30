@@ -1,25 +1,51 @@
 package us.deveron.moviesuch
 
 import android.os.Bundle
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import us.deveron.moviesuch.databinding.ActivityMainBinding
 
 
 class MainActivity : ComponentActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        val knopka = findViewById<Button>(R.id.button5)
-        knopka.setOnClickListener {
-            Toast.makeText(this, "Perdin!", Toast.LENGTH_SHORT).show()
-        }
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        initNavigation()
+
     }
 
-    fun onClickToast(view: View) {
-        Toast.makeText(this, "Chin!", Toast.LENGTH_SHORT).show()
+    fun initNavigation() {
+        binding.topAppBar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.settings -> {
+                    Toast.makeText(this, "Настройки", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                else -> false
+            }
+        }
+        binding.bottomNavigation.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.favorites -> {
+                    Toast.makeText(this, "Избранное", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                R.id.watch_later -> {
+                    Toast.makeText(this, "Посмотреть позже", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                R.id.selections -> {
+                    Toast.makeText(this, "Подборки", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                else -> false
+            }
+        }
     }
 }

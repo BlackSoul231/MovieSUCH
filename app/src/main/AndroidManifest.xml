@@ -10,13 +10,13 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/ic_persona_foreground"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MovieSUCH"
+        android:theme="@style/MyTheme"
         tools:targetApi="31">
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
-            android:theme="@style/Theme.MovieSUCH">
+            android:theme="@style/MyTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
