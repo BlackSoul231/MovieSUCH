@@ -4,7 +4,12 @@
     <string name="button1">Продолжить</string>
     <string name="button2">Новое</string>
     <string name="button3">Сохраненное</string>
-    <string name="button4">хз1</string>
-    <string name="button5">хз2</string>
-    <string name="button6">хз3</string>
+    <string name="button4">Дополнительно</string>
+    <string name="button5">Настройки</string>
+    <string name="button6">Выйти</string>
+    <string name="menu_settings_title">Настроечки</string>
+    <string name="menu_favorites_title">Любименькое</string>
+    <string name="menu_watch_later_title">Смотреть позже</string>
+    <string name="menu_selections_title">Выбранное</string>
+    <string name="page_title">Main menushka</string>
 </resources>
