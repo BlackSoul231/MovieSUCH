@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="MyTheme" parent="Theme.MaterialComponents.Light.NoActionBar" >
+        <item name="colorPrimary">#004900</item>
+        <item name="colorPrimaryDark">#2A2A2A</item>
+        <item name="colorAccent">#004394</item>
+    </style>
+
+
+</resources>

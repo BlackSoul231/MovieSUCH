@@ -10,7 +10,8 @@
     <color name="gray">#3A3A3A</color>
     <color name="light_gray">#B4B3B3</color>
     <color name="osnova">#FF0000</color>
-    <color name="vtorichka">#3B656D</color>
+    <color name="vtorichka">#005F1B</color>
     <color name="pobochka">#0000FF</color>
     <color name="color1">#C8AFFA</color>
+    <color name="color2">#73009D</color>
 </resources>

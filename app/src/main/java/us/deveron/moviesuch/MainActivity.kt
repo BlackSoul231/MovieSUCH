@@ -1,43 +1,51 @@
 package us.deveron.moviesuch
 
 import android.os.Bundle
-import android.view.View
-import android.view.ViewGroup
-import android.widget.Button
 import android.widget.Toast
 import androidx.activity.ComponentActivity
+import us.deveron.moviesuch.databinding.ActivityMainBinding
 
 
 class MainActivity : ComponentActivity() {
+    private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-        initMenuButtons()
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        initNavigation()
+
     }
 
-    fun onClickToast(view: View) {
-        Toast.makeText(this, "Chin!", Toast.LENGTH_SHORT).show()
-    }
-    fun initMenuButtons() {
-        val button1 = findViewById<Button>(R.id.button1)
-        val button2 = findViewById<Button>(R.id.button2)
-        val button3 = findViewById<Button>(R.id.button3)
-        val button4 = findViewById<Button>(R.id.button4)
-        val button5 = findViewById<Button>(R.id.button5)
-        button1.setOnClickListener {
-            Toast.makeText(this, "Continue", Toast.LENGTH_SHORT).show()
+    fun initNavigation() {
+        binding.topAppBar.setOnMenuItemClickListener {
+            when (it.itemId) {
+                R.id.settings -> {
+                    Toast.makeText(this, "Настройки", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                else -> false
+            }
         }
-        button2.setOnClickListener {
-            Toast.makeText(this, "New", Toast.LENGTH_SHORT).show()
-        }
-        button3.setOnClickListener {
-            Toast.makeText(this, "Saved", Toast.LENGTH_SHORT).show()
-        }
-        button4.setOnClickListener {
-            Toast.makeText(this, "Additional", Toast.LENGTH_SHORT).show()
-        }
-        button5.setOnClickListener {
-            Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show()
+        binding.bottomNavigation.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.favorites -> {
+                    Toast.makeText(this, "Избранное", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                R.id.watch_later -> {
+                    Toast.makeText(this, "Посмотреть позже", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                R.id.selections -> {
+                    Toast.makeText(this, "Подборки", Toast.LENGTH_SHORT).show()
+                    true
+                }
+
+                else -> false
+            }
         }
     }
 }
