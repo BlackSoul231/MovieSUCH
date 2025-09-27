@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ripple
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:color="@color/osnova">
+    android:color="@color/red">
     <item android:id="@android:id/mask"
         android:drawable="@drawable/ic_launcher_background"/>
     <item android:drawable="@android:color/white"/>

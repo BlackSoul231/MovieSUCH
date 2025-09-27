@@ -6,7 +6,7 @@ plugins {
 
 android {
     namespace = "us.deveron.moviesuch"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "us.deveron.moviesuch"
@@ -61,4 +61,6 @@ dependencies {
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
     implementation("com.google.android.material:material:1.12.0")
+    implementation(libs.androidx.recyclerview)
+    implementation("com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.0")
 }

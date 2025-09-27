@@ -7,7 +7,7 @@
     <androidx.cardview.widget.CardView
         android:layout_width="300dp"
         android:layout_height="500dp"
-        app:cardBackgroundColor="@color/osnova"
+        app:cardBackgroundColor="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android"
+    android:oneshot="false">
+
+    <item
+        android:duration="500"
+        android:drawable="@drawable/aliens_movie"/>
+
+    <item
+        android:duration="500"
+        android:drawable="@drawable/dark_knight_movie"/>
+
+    <item
+        android:duration="500"
+        android:drawable="@drawable/gladiator_movie"/>
+
+    <item
+        android:duration="500"
+        android:drawable="@drawable/hellraiser_movie"/>
+
+    <item
+        android:duration="500"
+        android:drawable="@drawable/pretty_woman_movie"/>
+
+    <item
+        android:duration="500"
+        android:drawable="@drawable/karate_kid_movie"/>
+
+    <item
+        android:duration="500"
+        android:drawable="@drawable/pulp_fiction_movie"/>
+
+    <item
+        android:duration="500"
+        android:drawable="@drawable/top_gun_movie2"/>
+
+
+</animation-list>
