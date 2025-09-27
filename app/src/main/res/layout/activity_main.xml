@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background_gradient"
-    tools:context=".WierdActivity">
+    tools:context=".MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/app_bar_layout"
@@ -31,7 +31,8 @@
         android:layout_height="160dp"
         android:layout_margin="10dp"
         android:elevation="5dp"
-        app:cardCornerRadius="15dp"
+        app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toTopOf="@id/source_annotation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/app_bar_layout">
@@ -39,36 +40,46 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            >
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="160dp"
                 android:contentDescription="Aliens move poster"
                 android:scaleType="fitXY"
-                android:src="@drawable/aliens_movie" />
+                android:src="@drawable/aliens_movie"
+                android:layoutAnimation="@anim/poster_animation_layout"
+                android:clickable="true"
+                />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="160dp"
                 android:contentDescription="Dark Knight move poster"
                 android:scaleType="fitXY"
-                android:src="@drawable/dark_knight_movie" />
+                android:src="@drawable/dark_knight_movie"
+                android:layoutAnimation="@anim/poster_animation_layout"
+                />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="160dp"
                 android:contentDescription="Gladiator move poster"
                 android:scaleType="fitXY"
-                android:src="@drawable/gladiator_movie" />
+                android:src="@drawable/gladiator_movie"
+                android:layoutAnimation="@anim/poster_animation_layout"
+                />
 
             <ImageView
                 android:layout_width="100dp"
                 android:layout_height="160dp"
                 android:contentDescription="Top Gun move poster"
                 android:scaleType="fitXY"
-                android:src="@drawable/top_gun_movie2" />
+                android:scaleX="1"
+                android:scaleY="1.02"
+                android:src="@drawable/top_gun_movie2"
+                android:layoutAnimation="@anim/poster_animation_layout" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -78,7 +89,9 @@
         android:layout_height="wrap_content"
         android:autoLink="web"
         android:linksClickable="true"
-        android:text="Источник: https://www.movieposters.com"
+        android:text="Source: https://www.movieposters.com"
+        android:textColor="@color/light_gray"
+        android:textStyle="bold"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -98,7 +111,7 @@
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginBottom="120dp"
         android:columnCount="2"
         android:orientation="horizontal"
         android:useDefaultMargins="true"
