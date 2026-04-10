@@ -6,9 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
 import us.deveron.moviesuch.databinding.FragmentHomeBinding
+import java.util.Locale
 
 
 class HomeFragment : Fragment() {
@@ -37,6 +39,10 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.searchBar.setOnClickListener { // Adding the option of clicking on the whole search field
+            binding.searchBar.isIconified = false
+        }
+
         // Here we find our RV.
         val mainRecycler = binding.mainRecycler
 
@@ -63,6 +69,31 @@ class HomeFragment : Fragment() {
         requireActivity().onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 DialogOnLeaveFragment().show(parentFragmentManager, "exit_dialog")
+            }
+        })
+
+        // Connecting the listener of changes for text input to search bar.
+        binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            // This method recycles SEARCH button on the soft-keyboard
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return true
+            }
+
+            // This method recycles every text change
+            override fun onQueryTextChange(newText: String?): Boolean {
+                // If input is empty, we put the whole DataBase
+                if (newText.isNullOrEmpty()) {
+                    filmsAdapter.addItems(filmsDatabase)
+                    return true
+                }
+                // FIltering the list for suitable matches
+                val result = filmsDatabase.filter {
+                    // For everything to work properly, we need tu put both name of the move and the query to the lower case
+                    it.title.lowercase(Locale.getDefault()).contains(newText.lowercase(Locale.getDefault()))
+                }
+                // Adding to the adapter
+                filmsAdapter.addItems(result)
+                return true
             }
         })
     }
