@@ -1,21 +1,26 @@
 package us.deveron.moviesuch
 
 import android.os.Bundle
+import android.transition.Scene
+import android.transition.Slide
+import android.transition.TransitionManager
+import android.transition.TransitionSet
+import android.view.Gravity
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.widget.SearchView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.LinearLayoutManager
-import us.deveron.moviesuch.databinding.FragmentHomeBinding
+import androidx.recyclerview.widget.RecyclerView
 import java.util.Locale
 
-
 class HomeFragment : Fragment() {
-    lateinit var binding: FragmentHomeBinding
     lateinit var filmsAdapter: FilmListRecyclerAdapter
+    var started = 0
     val filmsDatabase = mutableListOf(
         Film("Warfare", R.drawable.warfare_poster1, "The movie about American soldiers in Middle East fighting Taliban or something."),
         Film("Civil War", R.drawable.civil_war_poster, "Movie about modern civil war in the USA."),
@@ -26,25 +31,43 @@ class HomeFragment : Fragment() {
         Film("Gladiator", R.drawable.gladiator_movie, "Movie about gladiator"),
         Film("Top Gun", R.drawable.top_gun_movie, "Movie about jet fighter and a pilot"))
 
+    init {
+        exitTransition = Slide(Gravity.START).apply { duration = 800; mode = Slide.MODE_OUT }
+        reenterTransition = Slide(Gravity.START).apply { duration = 800 }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        binding = FragmentHomeBinding.inflate(inflater, container, false)
-        return binding.root
+
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.searchBar.setOnClickListener { // Adding the option of clicking on the whole search field
-            binding.searchBar.isIconified = false
+        val rootView = view.findViewById<ConstraintLayout>(R.id.home_fragment_root)
+        val scene = Scene.getSceneForLayout(rootView, R.layout.merge_home_screen_content, requireContext())
+        val searchSlide = Slide(Gravity.TOP).addTarget(R.id.search_bar)
+        val recyclerSlide = Slide(Gravity.BOTTOM).addTarget(R.id.main_recycler)
+        val customTransition = TransitionSet().apply {
+            duration = 500
+            addTransition(recyclerSlide)
+            addTransition(searchSlide)
         }
 
+        if (started == 0) {
+            TransitionManager.go(scene, customTransition)
+        }
+
+        val searchBar = requireActivity().findViewById<SearchView>(R.id.search_bar)
+        searchBar.setOnClickListener { // Adding the option of clicking on the whole search field
+            searchBar.isIconified = false
+        }
         // Here we find our RV.
-        val mainRecycler = binding.mainRecycler
+        val mainRecycler = requireActivity().findViewById<RecyclerView>(R.id.main_recycler)
 
         mainRecycler.apply {
             // We initialize our adapter into constructor by passing anonymous interface
@@ -66,6 +89,7 @@ class HomeFragment : Fragment() {
 //        filmsAdapter.addItems(filmsDatabase)
         addNewMoviesWithDiffUtil(filmsDatabase, filmsAdapter)
 
+        // Action on pressing BACK button
         requireActivity().onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 DialogOnLeaveFragment().show(parentFragmentManager, "exit_dialog")
@@ -73,7 +97,7 @@ class HomeFragment : Fragment() {
         })
 
         // Connecting the listener of changes for text input to search bar.
-        binding.searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+        searchBar.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
             // This method recycles SEARCH button on the soft-keyboard
             override fun onQueryTextSubmit(query: String?): Boolean {
                 return true

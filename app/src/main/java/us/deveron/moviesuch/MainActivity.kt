@@ -69,7 +69,7 @@ class MainActivity : AppCompatActivity() {
             .replace(R.id.fragment_placeholder, DetailsFragment().apply {
                 arguments = bundle
             })
-            .addToBackStack(null)
+            .addToBackStack("DetailsFragment")
             .commit()
     }
 }
