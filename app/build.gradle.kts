@@ -66,4 +66,5 @@ dependencies {
     implementation("com.hannesdorfmann:adapterdelegates4-kotlin-dsl:4.3.0")
     implementation("com.github.bumptech.glide:glide:4.11.0")
     annotationProcessor("com.github.bumptech.glide:compiler:4.11.0")
+    implementation("com.airbnb.android:lottie:3.4.4")
 }

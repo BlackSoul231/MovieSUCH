@@ -11,5 +11,7 @@
     <string name="menu_favorites_title">Любименькое</string>
     <string name="menu_watch_later_title">Смотреть позже</string>
     <string name="menu_selections_title">Выбранное</string>
+    <string name="menu_home_title_text">Меню</string>
     <string name="page_title">Main menushka</string>
+
 </resources>

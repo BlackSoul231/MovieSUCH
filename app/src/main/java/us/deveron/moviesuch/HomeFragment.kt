@@ -58,6 +58,8 @@ class HomeFragment : Fragment() {
             addTransition(searchSlide)
         }
 
+        MainActivity.AnimationHelper.performFragmentCircularRevealAnimation(rootView, requireActivity(), 4)
+
         if (started == 0) {
             TransitionManager.go(scene, customTransition)
         }
