@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
 
 // Created layout (film_item.xml) will be passed to layout
 class FilmViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -21,7 +22,14 @@ class FilmViewHolder(private val itemView: View) : RecyclerView.ViewHolder(itemV
         // Set the title.
         title.text = film.title
         // Set the poster.
-        poster.setImageResource(film.poster)
+
+// OLD WAY. New is with Glide //  poster.setImageResource(film.poster)
+
+        Glide.with(itemView) // Designating the container, in which the picture will be "living".
+            .load(film.poster) // Loading the resource
+            .centerCrop() // Moving the image to the center
+            .into(poster) // Designating the ImageView, where we want to load the image.
+
         // Set the description.
         description.text = film.description
     }
